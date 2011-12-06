@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:BusinessLocatorBar xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						 xmlns:s="library://ns.adobe.com/flex/spark" 
+						 xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:view="com.mq.finder.view.*"
+						 height="36" width="100%"
+						 dropShadowVisible="true" backgroundColor="#EEEEEE"
+						 creationComplete="this.createBLocatorList(this.locContainer)">
+	<view:layout>
+		<s:HorizontalLayout/>
+	</view:layout>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+
+	<s:HGroup paddingLeft="30" paddingTop="5" verticalAlign="middle">
+		<s:Label text="Select Business"/>
+		<s:BorderContainer  height="26" backgroundAlpha="0" left="10">
+			<s:HGroup id="locContainer" gap="2">
+			</s:HGroup>
+		</s:BorderContainer>
+		<s:Label text="Nearest to"/>
+		<s:TextInput id="nearAddres" text="Santamonica,LA,CA"/>
+		<s:Button label="Go" click="searchNearBy(this.nearAddres.text)"/>
+	</s:HGroup>
+</view:BusinessLocatorBar>

@@ -1,0 +1,48 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ManeuverVO.as</title>
+<link rel="stylesheet" type="text/css" href="../../../../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="ActionScriptpackage">package</span> <span class="ActionScriptDefault_Text">com</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mq</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">finder</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">vo</span>
+<span class="ActionScriptBracket/Brace">{</span>
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">com</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mapquest</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">LatLng</span>;
+
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">ManeuverVO</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">latlng</span>:<span class="ActionScriptDefault_Text">LatLng</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">distance</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">time</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">attribute</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">turnType</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">narrative</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">direction</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">directionName</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">index</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">streets</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">iconUrl</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">mapUrl</span>:<span class="ActionScriptDefault_Text">String</span>;
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">count</span>:<span class="ActionScriptDefault_Text">Number</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">ManeuverVO</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">latlng</span>:<span class="ActionScriptDefault_Text">LatLng</span><span class="ActionScriptOperator">,</span><span class="ActionScriptDefault_Text">distance</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span><span class="ActionScriptDefault_Text">time</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span>
+                                   <span class="ActionScriptDefault_Text">attribute</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">trnType</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">narration</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span><span class="ActionScriptDefault_Text">direction</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span><span class="ActionScriptDefault_Text">directName</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span>
+                                   <span class="ActionScriptDefault_Text">index</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">street</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">icon</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">map</span>:<span class="ActionScriptDefault_Text">String</span><span class="ActionScriptBracket/Brace">)</span>
+        <span class="ActionScriptBracket/Brace">{</span>
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">latlng</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">latlng</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">distance</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">distance</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">time</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">time</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">attribute</span> <span class="ActionScriptOperator">=</span><span class="ActionScriptDefault_Text">attribute</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">turnType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">trnType</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">narrative</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">narration</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">direction</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">direction</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">index</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">index</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">streets</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">street</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">iconUrl</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">icon</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">mapUrl</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">map</span>;
+            <span class="ActionScriptReserved">this</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">count</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">Number</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">index</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptOperator">+</span>1<span class="ActionScriptBracket/Brace">)</span>
+        <span class="ActionScriptBracket/Brace">}</span>
+    <span class="ActionScriptBracket/Brace">}</span>
+<span class="ActionScriptBracket/Brace">}</span></pre></body>
+</html>

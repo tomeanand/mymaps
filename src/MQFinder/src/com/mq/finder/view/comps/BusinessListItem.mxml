@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="300">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.mapquest.tilemap.pois.Poi;
+			import com.mq.finder.model.ModelLocator;
+			import com.mq.finder.vo.BusinessCategoryVO;
+			[Bindable]public var buzItem:Poi
+			[Bindable]public var category:BusinessCategoryVO;
+			[Bindable]public var slNum:Number = 0;
+
+			protected function labelClickHandler(event:MouseEvent):void
+			{
+				ModelLocator.getInstance().map.setCenter(buzItem.latLng,12);
+				buzItem.showInfoWindow();
+			}
+
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout gap="1"/>
+	</s:layout>
+	<s:Line width="100%" height="1">
+		<s:stroke>
+			<s:SolidColorStroke color="#D8D8D8" caps="square" weight="0.5"/>
+		</s:stroke>
+	</s:Line>
+	<s:HGroup paddingLeft="10" paddingTop="5">
+		<s:Group>
+			<s:Ellipse width="15" height="15">
+				<s:fill>
+					<s:SolidColor color="{category.color}"/>
+				</s:fill>
+			</s:Ellipse>
+			<s:Label styleName="listContent" text="{slNum}" color="#FFFFFF" textAlign="center" width="18" x="-1" y="3" fontSize="10"/>
+		</s:Group>
+		
+		<s:VGroup>
+			<s:Label styleName="listHeader" text="{buzItem.infoWindowTitleText}" click="labelClickHandler(event)"/>
+			<s:Label styleName="listContent" text="{buzItem.infoContent.getInfoString()+'\n\n'}"/>
+		</s:VGroup>
+	</s:HGroup>
+</s:Group>

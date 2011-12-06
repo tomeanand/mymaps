@@ -1,0 +1,24 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace mx "library://ns.adobe.com/flex/halo";
+
+
+global{font-family:arial,helvetica,verdana,sans-serif;font-color: "#000000";}
+
+s|BorderContainer{border-weight:0;border-visible:false;}
+s|Label{font-size:14}
+s|Button{skin-class:ClassReference("com.mq.finder.view.skins.WinstonButtonSkin");}
+
+
+s|VGroup s|Scroller {horizontal-scroll-policy:off;vertical-scroll-policy:on}
+s|VGroup s|VScrollBar{skin-class:ClassReference("com.mq.finder.view.skins.WinstonVScrollBar")}
+
+.tabStyles{horizontal-gap:2;border-alpha:.3;}
+#infoPanel{border-visible:false;drop-shadow-visible:false; padding-left:10;}
+.headerPadding{paddingLeft:30; paddingTop:30}
+
+
+.listHeader{font-size:15;font-weight:bold;color:#139CD3}
+.listContent{font-size:12;color:#999999}
+.accordionHeader{skin-class:ClassReference("com.mq.finder.view.skins.WinstonAccordionHeader");}

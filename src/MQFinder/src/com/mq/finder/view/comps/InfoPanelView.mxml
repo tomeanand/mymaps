@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:InfoPanel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx" width="350" height="100%" xmlns:view="com.mq.finder.view.*"
+				   styleName="infoPanelStyle">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/halo";
+		
+		.accordionHeaderStyles {
+			font-size:12;
+			font-weight:bold;
+			color:#FFFFFF;
+			indentation:10;
+			skin: ClassReference("com.mq.finder.view.skins.WinstonAccordionHeader");
+		}
+	</fx:Style>
+	
+
+	<!--	<s:Line width="1" height="100%" x="{this.width-1}" y="0">
+			<s:stroke>
+				<s:SolidColorStroke color="#D8D8D8" caps="square" weight="0.5"/>
+			</s:stroke>
+		</s:Line>-->
+		<!--<s:Line width="100%" x="3" y="47">
+			<s:stroke>
+				<s:SolidColorStroke color="#6B696B" caps="round" weight="1"/>
+			</s:stroke>
+		</s:Line>-->
+	<!--<mx:Accordion id="accordion" width="95%" height="100%"  headerStyleName="accordionHeaderStyles" borderVisible="false" openDuration="500" visible="{this.isInfoInitialised}">-->
+		
+	<mx:Image source="{this.dockImg}" x="{this.width-2}" y="24" click="dockPanel()" depth="1"/>
+	<mx:TabNavigator label="Business Search"  id="resultTabs" width="93.6%" styleName="tabStyles" 
+					 height="100%" visible="{!isDocked}"  creationComplete="this.addHandler(resultTabs)" x="5" y="0" depth="0"/>
+		
+	
+		
+		
+	<!--</mx:Accordion>-->
+</view:InfoPanel>

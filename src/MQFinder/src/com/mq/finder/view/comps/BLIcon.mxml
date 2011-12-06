@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="26" height="26"
+		 creationComplete="creationCompleteHandler(event)">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.mq.finder.controller.MapManager;
+			import com.mq.finder.events.MQFinderEvent;
+			import com.mq.finder.utils.MQFConstants;
+			import com.mq.finder.vo.BusinessCategoryVO;
+			import com.mq.finder.vo.BusinessListVO;
+			
+			import mx.events.FlexEvent;
+			
+			[Bindable]
+			public var data:Object;
+			[Bindable]
+			private var isClicked:Boolean = false;
+
+			protected function clickHandler(event:MouseEvent):void
+			{
+				var selected:BusinessCategoryVO = new BusinessCategoryVO(data.id,data.name,data.color,data.img);
+				selected.selectedIcon = data.selected;
+				selected.zoom = data.zoom;
+				if(!isClicked)	{
+					isClicked =  true;
+					MapManager.getInstance().dispatchEvent(new MQFinderEvent(MQFConstants.EVENT_BLOCATOR_SELECTED,selected));					
+				}
+				else	{
+					isClicked =  false;
+					MapManager.getInstance().dispatchEvent(new MQFinderEvent(MQFConstants.EVENT_BLOCATOR_REMOVE,selected));	
+				}
+			}
+
+
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				MapManager.getInstance().addEventListener(MQFConstants.EVENT_DELETE_TAB,deleteTabHandler);
+			}
+			
+			private function deleteTabHandler(event:MQFinderEvent):void	{
+				//data is ResultTabContentView, and we are taking 
+				//the businessvo from there, please take a look into ResultTabContent
+				var busVO:BusinessListVO = event.data.resultList;
+				var cateVO:BusinessCategoryVO = busVO.businessCategory;
+				if(this.data.name == cateVO.category)	{
+					isClicked =  false;
+				}
+			}
+
+		]]>
+	</fx:Script>
+	<s:BorderContainer id="bg" width="26" height="26" backgroundColor="{!isClicked ? 0x9BBC6D : data.color}" borderVisible="true" borderColor="#C2C2C2" cornerRadius="2" borderStyle="solid">
+		<mx:Image source="{data.img}" useHandCursor="true" buttonMode="true" toolTip="{data.name}" click="clickHandler(event)"/>
+	</s:BorderContainer>
+		
+</s:Group>

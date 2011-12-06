@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="350">
+	<fx:Script>
+		<![CDATA[
+			import com.mq.finder.model.ModelLocator;
+			import com.mq.finder.vo.ManeuverVO;
+			
+			[Bindable]public var vo:ManeuverVO
+			
+
+			
+			protected function elementHolder_clickHandler(event:MouseEvent):void
+			{
+				
+				if(vo.latlng.lat !=0 && vo.latlng.lng != 0)	{
+					ModelLocator.getInstance().map.setCenter(vo.latlng,10);
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:BorderContainer  width="100%" x="0" y="0" height="{this.narrative.y+this.narrative.height+5}" borderAlpha="0" click="elementHolder_clickHandler(event)">
+		<mx:Text fontSize="11" id="narrative" fontFamily="Verdana" htmlText="{'  '+vo.count+'. '+vo.narrative}" x="28" width="75%" y="12" selectable="false"/>
+		<mx:Image useHandCursor="true" buttonMode="true" toolTip="Click to Navigate" source="{vo.iconUrl}" x="7" y="8"/>
+		<mx:Text  id="distanceTxt" color="#ADAEAD" fontSize="9" x="{narrative.width+2}" fontFamily="Verdana" htmlText="{vo.distance.substring(0,4)+'mi'}"  y="12" selectable="false"/>
+		<mx:HRule x="10" id="rule" height="1" width="90%" y="0"/>
+
+	</s:BorderContainer>
+<!--	<s:Border id="elementHolder" width="100%" x="0" y="0" height="{this.narrative.y+this.narrative.height+5}" borderAlpha="0" click="elementHolder_clickHandler(event)">
+		
+		<mx:Text fontSize="11" id="narrative" fontFamily="Verdana" htmlText="{'  '+vo.count+'. '+vo.narrative}" x="28" width="77%" y="12" selectable="false"/>
+		<mx:Image useHandCursor="true" buttonMode="true" toolTip="Click to Navigate" source="{vo.iconUrl}" x="7" y="8"/>
+		<mx:Text  id="distanceTxt" color="#ADAEAD" fontSize="9" x="{narrative.width+2}" fontFamily="Verdana" htmlText="{vo.distance.substring(0,4)+'mi'}"  y="12" selectable="false"/>
+		<mx:HRule x="10" id="rule" height="1" width="90%" y="0"/>
+		
+	</s:Border>	-->
+</s:Group>
